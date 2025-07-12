@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 
 const connectDB = require('./db/db')
 const userRoutes = require('../Backend/routes/user.routes');
+const captainRoutes = require('../Backend/routes/captain.routes');
 
 
 connectDB();
@@ -22,7 +23,11 @@ app.get('/',(req,res)=>{
     res.send("This is the backend of flow of RideNow");
 })
 
+//User router
 app.use('/users',userRoutes);
+
+//Captain router
+app.use('/captains',captainRoutes);
 
 
 module.exports = app;
